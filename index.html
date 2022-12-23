@@ -64,7 +64,7 @@
           Effective Solutions <br />
           for Your Business
         </h1>
-        <button class="button primery" type="button">Order Service</button>
+        <button data-modal-open class="button primery" type="button">Order Service</button>
       </section>
       <!-- softskils -->
       <section class="section skills">
@@ -398,5 +398,16 @@
       </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button data-modal-close class="button-modal">
+          <svg class="icon-modal">
+            <use href="./images/icons.svg#icon-close"> </use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
