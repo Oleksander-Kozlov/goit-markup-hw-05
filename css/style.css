@@ -122,6 +122,7 @@ body {
 }
 
 .site-nav .link {
+    position: relative;
     display: block;
     /* padding-top: 24px;
     padding-bottom: 24px; */
@@ -156,17 +157,18 @@ body {
 }
 
 .site-nav .link.current:after {
-    display: block;
+    position: absolute;
+    bottom:-24px;
+    left: 0;
+
+    
     content: "";
-    margin-top: 24px;
+
     width: 100%;
     height: 4px;
     border-radius: 2px;
 
     background-color: var(--Pressed-state);
-
-
-
 }
 
 /* auth-nav */
@@ -250,12 +252,7 @@ body {
     cursor: pointer;
 
 
-    transition-property: box-shadow;
-    transition-duration: var(--time-animation-normal);
-    transition-timing-function: var(--timing-function);
-    transition-property: background-color;
-    transition-duration: var(--time-animation-normal);
-    transition-timing-function: var(--timing-function);
+    transition: box-shadow var(--time-animation-normal) var(--timing-function) background-color var(--time-animation-normal)  var(--timing-function);
 
 }
 
@@ -489,17 +486,21 @@ body {
 }
 
 .icon {
+    display: block;
     width: 16px;
     height: 16px;
     fill: var(--light);
-    /* background-repeat: no-repeat;*/
-    /* background-position: center; */
-    /* background-size: 100%; */
-    /* background-color: darkgreen; */
-    /* align-items: center; */
 
-
+    /* background-repeat: no-repeat
+    background-position: cover;
+    background-size: cover;
+    background-color: darkgreen;
+    align-items: center; */
 }
+/* .icon-use{
+    width: 100%;
+    height: 100%;
+} */
 
 /* customers section */
 .customers .section-title {
@@ -759,21 +760,26 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(46, 47, 66, 0.4);
+    /* backdrop-filter: blur(2px); */
 
     opacity: 1;
-    transition: opacity 300ms var(--timing-function);
-
+    transition: visibility 500ms, opacity 500ms; 
 }
 
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
-    visibility: hidden
+    visibility: hidden;
+    
+    
+    
+
 }
 
 .backdrop.is-hidden .modal {
     transform: translate(-50%, -50%) scale(0.3) rotateX(270deg);
-
+ 
+    
 
 }
 
@@ -791,7 +797,7 @@ body {
     border-radius: 4px;
 
     transform: translate(-50%, -50%) scale(1) rotateX(360deg);
-    transition: transform 300ms var(--timing-function);
+    transition: transform 1000ms var(--timing-function);
 
 
 
@@ -800,11 +806,13 @@ body {
 
 .button-modal {
     position: absolute;
-    display: flex;
-    justify-content: center;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    
     top: 24px;
     right: 24px;
-    display: block;
+   padding: 0; 
 
     min-width: 24px;
     min-height: 24px;
